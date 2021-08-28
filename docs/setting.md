@@ -8,10 +8,10 @@
 
 ## Package install
 
-Run command as follows.
+Run command as follows:
 
 ```
-npm install --save-dev typescript ts-loader webpack webpack-cli webpack-dev-server jest
+npm install --save-dev typescript ts-loader webpack webpack-cli webpack-dev-server jest ts-jest @types/jest
 ```
 
 1. [typescript](https://github.com/microsoft/TypeScript)  
@@ -40,24 +40,31 @@ npm install --save-dev typescript ts-loader webpack webpack-cli webpack-dev-serv
     >Jest is a delightful JavaScript Testing Framework with a focus on simplicity.
     It works with projects using: Babel, TypeScript, Node, React, Angular, Vue and more!
 
+1. [ts-jest](https://github.com/kulshekhar/ts-jest)  
+    >A Jest transformer with source map support that lets you use Jest to test projects written in TypeScript.
+
+1. [@types/jest](https://www.npmjs.com/package/@types/jest)  
+    >This package contains type definitions for Jest (https://jestjs.io/).
+
 ---
 
 ## Setting Configurations
 
 ### tsconfig.json
-1. Run command as follows.
+1. Run command as follows:
 ```
 tsc --init
 ```
-1. Modify as follows.
+1. Configure as follows:
 ```
 "baseUrl": "./src",
+"paths": {"#/*": ["*"]},
 "outDir": "./dist",
 ```
 * [TSConfig Reference](https://www.typescriptlang.org/tsconfig)
 
 ### package.json
-Modify `scripts` block as follows.
+Configure as follows:
 ```
   "scripts": {
     "test": "jest",
@@ -66,5 +73,12 @@ Modify `scripts` block as follows.
   }
 ```
 
+### jest.config.js
+1. Run command as follows:
+```
+npx ts-jest config:init
+```
+1. Configure as follows: [jest.config.js](../jest.config.js)
+
 ### Make webpack.config.js
-Show [webpack.config.js](../webpack.config.js)
+Configure as follows: [webpack.config.js](../webpack.config.js)
